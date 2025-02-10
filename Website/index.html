@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="style1.css">
+</head>
+<body>
+    <h2> Owner</h2>
+    <div class="container">
+        <aside class="sidebar">
+            <div class="profile-icon">&#128100;</div>
+            <nav>
+                <ul>
+                    <li class="active" onclick="showSection(0)">Dashboard</li>
+                    <li onclick="showSection(1)">Orders</li>
+                    <li onclick="showSection(2)">Delivery</li>
+                    <li onclick="showSection(3)">History</li>
+                </ul>
+            </nav>
+        </aside>
+        <main class="content">
+            <section class="section" id="dashboard">
+                <h1>Dashboard</h1>
+                <div class="grid">
+                    <div class="card">
+                        <h3>Orders</h3>
+                        <p>12</p>
+                    </div>
+                    <div class="card">
+                        <h3>Delivery Tracking</h3>
+                    </div>
+                    <div class="card">
+                        <h3>History Notification</h3>
+                        <p>12</p>
+                    </div>
+                    <div class="card">
+                        <h3>Shrek</h3>
+                    </div>
+                </div>
+            </section>
+            <section class="section" id="orders">
+                <h1>Orders</h1>
+                <div class="grid">
+                    <div class="card">Item 1</div>
+                    <div class="card">Item 2</div>
+                    <div class="card">Item 3</div>
+                    <div class="card">Shrek</div>
+                    <div class="card">C2 na red</div>
+                    <div class="card">C2 na green</div>
+                </div>
+            </section>
+            <section class="section" id="delivery">
+                <h1>Delivery</h1>
+                <p>Add Delivery ➕</p>
+                <table>
+                    <tr>
+                        <th>Name</th>
+                        <th>Branch_ID</th>
+                        <th>Email</th>
+                        <th>Number</th>
+                        <th>Status</th>
+                    </tr>
+                    <tr><td>Steffy</td></tr>
+                    <tr><td>Paully</td></tr>
+                    <tr><td>Justina</td></tr>
+                    <tr><td>Bradley</td></tr>
+                </table>
+            </section>
+            <section class="section" id="history">
+                <h1>History</h1>
+            </section>
+        </main>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
