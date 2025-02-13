@@ -1,3 +1,4 @@
+/* General styles for the body */
 body {
     font-family: Arial, sans-serif;
     margin: 0;
@@ -7,31 +8,38 @@ body {
     background: white;
 }
 
+/* Header */
 h2 {
     text-align: center;
     margin: 10px 0;
     color: #333;
 }
 
+/* Container holding the sidebar and content */
 .container {
     display: flex;
     width: 100%;
+    flex-wrap: wrap; /* Allow content to stack on smaller screens */
 }
 
+/* Sidebar styles */
 .sidebar {
     width: 200px;
     background: #F0A04B;
     color: white;
     padding: 20px;
     height: 100vh;
+    flex-shrink: 0; /* Prevent shrinking */
 }
 
+/* Profile icon in the sidebar */
 .profile-icon {
     font-size: 40px;
     text-align: center;
     margin-bottom: 20px;
 }
 
+/* Sidebar navigation list */
 nav ul {
     list-style: none;
     padding: 0;
@@ -46,6 +54,7 @@ nav ul li.active, nav ul li:hover {
     background: #B1C29E;
 }
 
+/* Content area styles */
 .content {
     flex: 1;
     padding: 20px;
@@ -55,6 +64,7 @@ nav ul li.active, nav ul li:hover {
     margin: 10px;
 }
 
+/* Grid for displaying cards */
 .grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
@@ -69,6 +79,7 @@ nav ul li.active, nav ul li:hover {
     font-weight: bold;
 }
 
+/* Orders section card styles */
 #orders .grid .card {
     height: 100px;
     display: flex;
@@ -76,6 +87,7 @@ nav ul li.active, nav ul li:hover {
     justify-content: center;
 }
 
+/* Delivery section table */
 #delivery table {
     width: 100%;
     border-collapse: collapse;
@@ -93,10 +105,66 @@ nav ul li.active, nav ul li:hover {
     color: white;
 }
 
+/* Default section styling */
 .section {
     display: none;
 }
 
+/* Show the first section (Dashboard) by default */
 .section:first-child {
     display: block;
+}
+
+/* Media Query for smaller screens (mobile and tablet) */
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column; /* Stack sidebar and content */
+    }
+
+    /* Make sidebar collapse into a smaller version or hide it (optional) */
+    .sidebar {
+        width: 100%; /* Sidebar takes full width */
+        height: auto;
+        padding: 10px;
+    }
+
+    .profile-icon {
+        font-size: 30px; /* Smaller profile icon */
+    }
+
+    nav ul li {
+        padding: 8px;
+    }
+
+    .content {
+        margin-top: 20px; /* Add margin for better spacing */
+    }
+
+    .grid {
+        grid-template-columns: repeat(auto-fill, minmax(100px, 1fr)); /* Smaller cards on smaller screens */
+    }
+
+    #delivery table th, #delivery table td {
+        padding: 10px; /* Reduced padding for mobile/tablet */
+    }
+}
+
+/* Media Query for very small screens (mobile portrait) */
+@media (max-width: 480px) {
+    .sidebar {
+        width: 100%;
+        padding: 5px;
+    }
+
+    .content {
+        padding: 15px; /* Reduce padding for small screens */
+    }
+
+    .profile-icon {
+        font-size: 25px; /* Further reduce icon size */
+    }
+
+    nav ul li {
+        font-size: 14px; /* Smaller text size in the sidebar */
+    }
 }
