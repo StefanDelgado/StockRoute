@@ -1,184 +1,86 @@
-/* General styles for the body */
-body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    flex-direction: column;
-    background: white;
-}
-
-/* Header */
-h2 {
-    text-align: center;
-    margin: 10px 0;
-    color: #333;
-}
-
-/* Container holding the sidebar and content */
-.container {
-    display: flex;
-    width: 100%;
-    flex-wrap: wrap; /* Allow content to stack on smaller screens */
-}
-
-/* Sidebar styles */
-.sidebar {
-    width: 200px;
-    background: #F0A04B;
-    color: white;
-    padding: 20px;
-    height: 100vh;
-    flex-shrink: 0; /* Prevent shrinking */
-}
-
-/* Profile icon in the sidebar */
-.profile-icon {
-    font-size: 5px;
-    text-align: center;
-    margin-bottom: 20px;
-}
-
-/* Sidebar navigation list */
-nav ul {
-    list-style: none;
-    padding: 0;
-}
-
-nav ul li {
-    padding: 10px;
-    cursor: pointer;
-}
-
-nav ul li.active, nav ul li:hover {
-    background: #B1C29E;
-}
-
-/* Content area styles */
-.content {
-    flex: 1;
-    padding: 20px;
-    background: #FCE7C8;
-    border-radius: 8px;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-    margin: 10px;
-
-}
-
-/* Grid for displaying cards */
-.grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-    gap: 20px;
-}
-
-.card {
-    background: #ecf0f1;
-    padding: 20px;
-    text-align: center;
-    border-radius: 5px;
-    font-weight: bold;
-}
-
-/* Orders section card styles */
-#orders .grid .card {
-    height: 100px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-/* Delivery section table */
-#delivery table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-top: 20px;
-}
-
-#delivery th, #delivery td {
-    padding: 15px;
-    text-align: left;
-    border-bottom: 1px solid #ddd;
-}
-
-#delivery th {
-    background: #B1C29E;
-    color: white;
-}
-
-/* Default section styling */
-.section {
-    display: none;
-}
-
-/* Show the first section (Dashboard) by default */
-.section:first-child {
-    display: block;
-}
-
-/* Media Query for smaller screens (mobile and tablet) */
-@media (max-width: 768px) {
-    .container {
-        flex-direction: column; /* Stack sidebar and content */
-    }
-
-    /* Make sidebar collapse into a smaller version or hide it (optional) */
-    .sidebar {
-        width: 100%; /* Sidebar takes full width */
-        height: auto;
-        padding: 10px;
-    }
-
-    .profile-icon {
-        font-size: 30px; /* Smaller profile icon */
-    }
-
-    nav ul li {
-        padding: 8px;
-    }
-
-    .content {
-        margin-top: 20px; /* Add margin for better spacing */
-    }
-
-    .grid {
-        grid-template-columns: repeat(auto-fill, minmax(100px, 1fr)); /* Smaller cards on smaller screens */
-    }
-
-    #delivery table th, #delivery table td {
-        padding: 10px; /* Reduced padding for mobile/tablet */
-    }
-}
-
-/* Media Query for very small screens (mobile portrait) */
-@media (max-width: 480px) {
-    .sidebar {
-        width: 100%;
-        padding: 5px;
-    }
-
-    .content {
-        padding: 15px; /* Reduce padding for small screens */
-    }
-
-    .profile-icon {
-        font-size: 25px; /* Further reduce icon size */
-    }
-
-    nav ul li {
-        font-size: 14px; /* Smaller text size in the sidebar */
-    }
-}
-.add-button {
-    background-color: #275daf; 
-    color: white; 
-    padding: 10px 20px; 
-    border: none; 
-    border-radius: 5px; 
-    cursor: pointer;
-    font-size: 12px; 
-}
-
-.add-button:hover {
-    background-color: #45a049; 
-}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="style1.css">
+</head>
+<body>
+    <h2> Owner</h2>
+    <div class="container">
+        <aside class="sidebar">
+            <div class="profile-icon1"><svg width="67" height="67" viewBox="0 0 67 67" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M33.5 67C52.0016 67 67 52.0016 67 33.5C67 14.9985 52.0016 0 33.5 0C14.9985 0 0 14.9985 0 33.5C0 52.0016 14.9985 67 33.5 67ZM25.125 20.9375C25.125 16.3121 28.8746 12.5625 33.5 12.5625C38.1255 12.5625 41.875 16.3121 41.875 20.9375C41.875 25.5629 38.1255 29.3125 33.5 29.3125C28.8746 29.3125 25.125 25.5629 25.125 20.9375ZM23.0312 33.5H43.9688C47.4377 33.5 50.25 36.3123 50.25 39.7812C50.25 44.4549 48.3279 48.1994 45.1743 50.7307C42.0701 53.2223 37.9099 54.4375 33.5 54.4375C29.0902 54.4375 24.9299 53.2223 21.8259 50.7307C18.6719 48.1994 16.75 44.4549 16.75 39.7812C16.75 36.3123 19.5622 33.5 23.0312 33.5Z" fill="#212121"/>
+                </svg>
+                </div>
+            <nav>
+                <ul>
+                    <li class="active" onclick="showSection(0)">Dashboard</li>
+                    <li onclick="showSection(1)">Orders</li>
+                    <li onclick="showSection(2)">Delivery</li>
+                    <li onclick="showSection(3)">History</li>
+                </ul>
+            </nav>
+        </aside>
+        <main class="content">
+            <section class="section" id="dashboard">
+                <h1>Dashboard</h1>
+                <div class="grid">
+                    <div class="card">
+                        <h3>Orders</h3>
+                        <p>12</p>
+                    </div>
+                    <div class="card">
+                        <h3>Delivery Tracking</h3>
+                    </div>
+                    <div class="card">
+                        <h3>History Notification</h3>
+                        <p>12</p>
+                    </div>
+                    <div class="card">
+                        <h3>Shrek</h3>
+                    </div>
+                </div>
+            </section>
+            <section class="section" id="orders">
+                <h1>Orders</h1>
+                <div class="grid">
+                    <div class="card">Item 1</div>
+                    <div class="card">Item 2</div>
+                    <div class="card">Item 3</div>
+                    <div class="card">Shrek</div>
+                    <div class="card">C2 na red</div>
+                    <div class="card">C2 na green</div>
+                </div>
+            </section>
+            <section class="section" id="delivery">
+                <h1>Delivery</h1>
+                <!-- Changed the plus sign into a button -->
+                <button class="add-button">Add Delivery</button>
+                <table>
+                    <!-- Table content goes here -->
+                </table>
+                <table>
+                    <tr>
+                        <th>Name</th>
+                        <th>Branch_ID</th>
+                        <th>Email</th>
+                        <th>Number</th>
+                        <th>Status</th>
+                    </tr>
+                    <tr><td>Steffy</td></tr>
+                    <tr><td>Paully</td></tr>
+                    <tr><td>Justina</td></tr>
+                    <tr><td>Bradley</td></tr>
+                </table>
+            </section>
+            <section class="section" id="history">
+                <h1>History</h1>
+            </section>
+        </main>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
