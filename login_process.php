@@ -35,20 +35,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             // Login successful: set session variables
             $_SESSION['user_id'] = $user['id'];
             $_SESSION['username'] = $user['username'];
+            $_SESSION['role'] = $user['role'];  // Store the role in the session
 
-            // Redirect to dashboard or home page
-            header("Location: dashboard.php");
-            exit();
-        } else {
-            // Invalid password
-            header("Location: login.php?error=1");
-            exit();
-        }
-    } else {
-        // No user found
-        header("Location: login.php?error=1");
-        exit();
-    }
-}
+            // Redirect based on user role
+            if ($user['role'] == 'admin') {
+                header("Location: admin_dashboard.php");
+            } elseif ($user['role'] == 'owner') {
+                header("Location: owner_dashboard.php");
+            } elseif ($user['role'] == 'supplier') {
+         
 
-$conn->close();
